@@ -94,7 +94,7 @@ class rsa{
 	encrypt(){
 		let docs=document.querySelector(`#${this.app_name} #encrypt`);
 		let orig=docs.querySelector("#orig").value;
-		let pub_key=document.querySelector(`#${this.app_name} #key_pub`).value;
+		let pub_key=document.querySelector(`#${this.app_name} #key`).value;
 		pub_key=eval(pub_key);
 		orig=this.utf8tolst(orig);
 		let re=[];
@@ -104,24 +104,11 @@ class rsa{
 		
 		docs.querySelector("#res_encrypt").innerHTML=`[${String(re)}]`;
 	}
-	sign(){
-		let docs=document.querySelector(`#${this.app_name} #encrypt`);
-		let orig=docs.querySelector("#orig").value;
-		let pri_key=document.querySelector(`#${this.app_name} #key_pri`).value;
-		pri_key=eval(pri_key);
-		let hash_res=this.myhash(orig);
-		hash_res=this.utf8tolst(hash_res);
-		let re=[];
-		for(let i of hash_res){
-			re.push(this.fastpow(i,pri_key[1],pri_key[0]));
-		}
-		docs.querySelector("#res_sign").innerHTML=`[${String(re)}]`;
 	
-	}
 	decrypt(){
 		let docs=document.querySelector(`#${this.app_name} #decrypt`);
 		let orig=docs.querySelector("#orig").value;
-		let pri_key=document.querySelector(`#${this.app_name} #key_pri`).value;
+		let pri_key=document.querySelector(`#${this.app_name} #key`).value;
 		orig=eval(orig);
 		pri_key=eval(pri_key);
 		let re=[];
@@ -132,28 +119,6 @@ class rsa{
 		docs.querySelector("#res_txt").innerHTML=re;
 	}
 
-	check_sign(){
-		let docs=document.querySelector(`#${this.app_name} #decrypt`);
-		let orig=docs.querySelector("#orig_sign").value;
-		let pub_key=document.querySelector(`#${this.app_name} #key_pub`).value;
-		orig=eval(orig);
-		pub_key=eval(pub_key);
-		let re=[];
-		for(let i of orig){
-			re.push(this.fastpow(i,pub_key[1],pub_key[0]));
-		}
-		console.log(re);
-		re=this.lsttoutf8(re);
-		let orig_hash=this.myhash(docs.querySelector("#res_txt").innerHTML);
-		console.log(re);
-		console.log(orig_hash);
-		if(re==orig_hash){
-			docs.querySelector("#res_sign").innerHTML="true";
-		}else{
-			docs.querySelector("#res_sign").innerHTML="false";
-		}
-	}
-
 	add(){
 		let name=document.querySelector(`#${this.app_name} #name`).value;
 		if(name==""){
@@ -162,8 +127,8 @@ class rsa{
 		let pub_key=document.querySelector(`#${this.app_name} #pub_key`).value;
 		let pri_key=document.querySelector(`#${this.app_name} #pri_key`).value;
 		if(pub_key=="" || pri_key==""){return;}
-		rsa_keybank.add("rsa_pub_key",name,eval(pub_key),"RSA公鑰","#rsa #key_pub");
-		rsa_keybank.add("rsa_pri_key",name,eval(pri_key),"RSA私鑰","#rsa #key_pri");
+		rsa_keybank.add("stupid_rsa_pub_key",name,eval(pub_key),"stupid_RSA公鑰","#rsa #key");
+		rsa_keybank.add("stupid_rsa_pri_key",name,eval(pri_key),"stupid_RSA私鑰","#rsa #key");
 	}
 }
 

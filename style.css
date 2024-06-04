@@ -141,18 +141,20 @@ button.btn{
 }
 
 .mini_btn>.icon_btn{
-	height:3em;
-	width:3em;
+	height:2em;
+	width:5em;
 	color:#fff;
 	background-color: #000;
 	margin: 8px;
 	border:none;
 	border-radius: 8px;
+	font-size: 16px;
+	padding:4px;
 }
 
 .mini_btn>.icon_btn::before{
 	padding: 0;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .mini_btn{

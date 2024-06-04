@@ -38,7 +38,7 @@ var sha256 = function sha256(ascii) {
 	}
 	
 	ascii += '\x80' // Append Ƈ' bit (plus zero padding)
-	while (ascii[lengthProperty]%64 - 56) ascii += '\x00' // More zero padding
+	while (ascii[lengthProperty]%64 - 56) ascii += [0] // More zero padding
 	for (i = 0; i < ascii[lengthProperty]; i++) {
 			j = ascii[i];
 			if (j>>8) return; // ASCII check: only accept characters in range 0-255
@@ -96,3 +96,34 @@ var sha256 = function sha256(ascii) {
 	}
 	return result;
 };
+
+function myhash(str){
+	let orig_lst=this.utf8tolst(str);
+	return sha256(orig_lst);
+}
+
+
+
+two=false;
+function utf8tolst(str){
+	let re=[];
+	for(let i of str){
+		if(this.two){
+			re.push(Math.trunc(i.charCodeAt(0)/256));
+			re.push(Math.trunc(i.charCodeAt(0)%256));
+		}else{
+			re.push(i.charCodeAt(0));
+		}
+	}
+	return re;
+}
+function lsttoutf8(lst){
+	let re="";
+	for(let i=0;i<lst.length;i+=1+(this.two)){
+		if(this.two)
+			re+=String.fromCharCode(lst[i]*256+lst[i+1]);
+		else
+			re+=String.fromCharCode(lst[i]);
+	}
+	return re;
+}

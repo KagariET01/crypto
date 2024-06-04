@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RSA加密器</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	</head>
+	<body>
+
+		<div id="sha256" class="operator">
+			<button class="h1" onclick="hide('#sha256')">SHA256（改）雜湊器</button>
+			<div class="bigbox">
+				<p>
+					此SHA256雜湊器並非標準的SHA256演算法，僅供學習使用<br>
+					此雜湊可能會和正規的雜湊有億點點的差異<br>
+					開源碼使用：<a href="https://geraintluff.github.io/sha256/">https://geraintluff.github.io/sha256/</a>
+				</p>
+
+				<button class="h2 head lock" onclick="hide('#sha256 #encrypt')">SHA256（改）雜湊器</button>
+				<div class="content" id="encrypt">
+					<div class="bar txt">雜湊文字 <textarea id="orig"></textarea></div>
+					<button class="btn keyboard" onclick="new sha256_enc().encrypt()">加密</button>
+					<div class="bar encrypted" >雜湊結果 <textarea id="res"></textarea></div>
+				</div>
+			</div>
+		</div>
+			
+		<script src="./script.js"></script>
+		<script src="../script.js"></script>
+		<script src="../sha256.js"></script>
+	</body>
+</html>
