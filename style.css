@@ -1,0 +1,267 @@
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v190/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format('woff2');
+}
+
+*{
+	box-sizing: border-box;
+}
+
+html{
+	width:100%;
+	display: flex;
+	justify-content: center;
+}
+
+body{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.operator{
+	width: calc(min(max(min(50%,500px),500px) , 100%) - 32px);
+	margin: 16px;
+}
+
+.head {
+	background: #000;
+	color: #fff;
+	width: fit-content;
+	padding:4px;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	font-size: 16px;
+	border: 1px solid #000;
+	margin-bottom: 0;
+}
+
+h1,.h1{
+	background: #000;
+	color: #fff;
+	padding:4px;
+	padding-left: 8px;
+	padding-right: 16px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border: 1px solid #000;
+	border-bottom: none;
+	text-align: center;
+	margin: 0;
+	font-size: 32px;
+	width: 100%;
+}
+
+.bigbox{
+	font-size: 16px;
+	color: #000;
+	border: 4px solid #000;
+	/* border-top: 8px solid #000; */
+	border-radius: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/* padding: 0; */
+	/* background-color: #0001; */
+	border-radius: 0;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	padding:8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.hide>.bigbox{
+	height: 0;
+	overflow: hidden;
+}
+
+*::before{
+	font-family: "Material Symbols Outlined";
+	padding:0;
+	padding-right: 4px;
+	font-size: inherit;
+}
+
+h1:before,.h1::before{
+	content: "code_blocks";
+}
+
+h2,.h2{
+	margin-top: 1em;
+}
+
+.content{
+	font-size: 16px;
+	color: #000;
+	border: 4px solid #000;
+	/* border-top: 8px solid #000; */
+	/* border-radius: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding: 0; */
+	background-color: #0001;
+	/* width: fit-content; */
+	width: min(max(50% , 500px) , 100%);
+	border-radius: 8px;
+	padding:8px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.content.hide{
+	height: 0;
+	overflow: hidden;
+	padding:0;
+	width:0;
+	border:none;
+}
+
+button.btn{
+	font-size: 16px;
+	text-align: center;
+	background-color: #0004;
+	color:#000;
+	border-radius: 8px;
+	height:2em;
+	padding:8px;
+	height: 3em;
+	margin: 4px;
+	font-size: 20px;
+}
+
+.mini_btn>.icon_btn{
+	height:3em;
+	width:3em;
+	color:#fff;
+	background-color: #000;
+	margin: 8px;
+	border:none;
+	border-radius: 8px;
+}
+
+.mini_btn>.icon_btn::before{
+	padding: 0;
+	font-size: 20px;
+}
+
+.mini_btn{
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
+	text-align: center;
+	background-color: #0004;
+	color:#000;
+	border-radius: 8px;
+	padding:2px;
+	margin: 4px;
+	font-size: 20px;
+	height: auto;
+	align-items: center
+}
+
+.bar{
+	display: flex;
+	background-color: #000;
+	border-radius: 8px;
+	height:2em;
+	padding:8px;
+	color:#fff;
+	height: 4em;
+	align-items: center;
+	margin: 4px;
+}
+
+input,textarea{
+	height:100%;
+	font-size: 16px;
+	margin-left: 8px;
+	min-width: 0;
+	width:calc(100% - 140px);
+}
+
+.key::before{
+	content: "vpn_key";
+}
+
+.txt::before{
+	content: "article";
+}
+
+.lock::before{
+	content: "lock";
+}
+
+.encrypted::before{
+	content: "encrypted";
+}
+
+.keyboard::before{
+	content: "keyboard";
+}
+
+.lock_open_right::before{
+	content: "lock_open_right";
+}
+
+.upload::before{
+	content: "upload";
+}
+
+.download::before{
+	content: "download";
+}
+
+.password::before{
+	content: "password";
+}
+
+.pin::before{
+	content: "pin";
+}
+
+.person::before{
+	content: "person";
+}
+
+.security_key::before{
+	content: "security_key";
+}
+
+.sign::before{
+	content: "edit_document";
+}
+
+.fact_check::before{
+	content: "fact_check";
+}
+
+.license::before{
+	content: "license";
+}
+
+.search_check_2::before{
+	content: "search_check_2";
+}
+
+.new_releases::before{
+	content: "new_releases";
+}
+
+.del::before{
+	content:"delete_forever";
+}
+
+.keyboard_external_input::before{
+	content: "keyboard_external_input";
+}

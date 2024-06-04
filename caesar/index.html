@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>凱薩加、解密器</title>
+		<link rel="stylesheet" type="text/css" href="/style.css">
+		<meta charset="utf-8" />
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	</head>
+	<body>
+
+		<div id="caesar" class="operator">
+			<button class="h1" onclick="hide('caesar')">凱薩加、解密器</button>
+			<div class="bigbox">
+				
+				<div class="bar key" style="width: fit-content;">加密金鑰 <input type="number" id="key"></div>
+				
+				<h2 class="head lock">凱薩加密器</h2>
+				<div class="content" id="encrypt">
+					<div class="bar txt">加密文字 <textarea id="orig"></textarea></div>
+					<button class="btn keyboard" onclick="new caesar().encrypt()">加密</button>
+					<div class="bar encrypted" >加密結果 <textarea id="res"></textarea></div>
+				</div>
+
+				<h2 class="head lock_open_right">凱薩解密器</h2>
+				<div class="content" id="decrypt">
+					<div class="bar encrypted">解密文字 <textarea id="orig"></textarea></div>
+					<button class="btn key" onclick="new caesar().decrypt()">解密</button>
+					<div class="bar txt" >解密結果 <textarea id="res"></textarea></div>
+				</div>
+			</div>
+			<script src="./script.js"></script>
+			<script src="../script.js"></script>
+		</div>
+
+
+	</body>
+</html>

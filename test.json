@@ -1,0 +1,30 @@
+{
+	"rsa_pub_key": {
+		"display_name": "RSA公鑰",
+		"queryS": "#rsa #key_pub",
+		"data": {
+			"test": [
+				1349653,
+				1031
+			],
+			"": [
+				1291613,
+				1123
+			]
+		}
+	},
+	"rsa_pri_key": {
+		"display_name": "RSA私鑰",
+		"queryS": "#rsa #key_pri",
+		"data": {
+			"test": [
+				1349653,
+				1268919
+			],
+			"": [
+				1291613,
+				331807
+			]
+		}
+	}
+}

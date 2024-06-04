@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RSA加密器</title>
+		<link rel="stylesheet" type="text/css" href="/style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	</head>
+	<body>
+
+		<div id="rsa" class="operator">
+			<button class="h1" onclick="hide('#rsa')">RSA加密器</button>
+			<div class="bigbox">
+				<p>
+					此加密器的核心原理是兩個質數相乘，並得出公、私鑰<br>
+					但因為此加密器是簡易版，所以質數範圍很小，不適合用於真實加密<br>
+				</p>
+				<div class="bar key" style="width: fit-content;">加密、驗證公鑰 <input id="key_pub"></div>
+				<div class="bar key" style="width: fit-content;">解密、簽名私鑰 <input id="key_pri" type="password"></div>
+				
+				<button class="h2 head lock" onclick="hide('#rsa #keygen')">金鑰生成器</button>
+				<div class="content" id="keygen">
+					<div class="bar person" >你的名字<input id="name"></input></div>
+					<button class="btn keyboard" onclick="new rsa().keygen()">生成金鑰</button>
+					<div class="bar pin" >公鑰 <input id="pub_key"></input></div>
+					<div class="bar password" >私鑰 <input id="pri_key" type="password"></input></div>
+					<button class="btn download" onclick="new rsa().add()">新增至密碼本	</button>
+				</div>
+
+				<button class="h2 head lock" onclick="hide('#rsa #encrypt')">RSA加密器</button>
+				<div class="content" id="encrypt">
+					<div class="bar txt">加密文字 <textarea id="orig"></textarea></div>
+					<button class="btn keyboard" onclick="new rsa().encrypt()">加密</button>
+					<button class="btn sign" onclick="new rsa().sign()">簽名</button>
+					<div class="bar encrypted" >加密結果 <textarea id="res_encrypt"></textarea></div>
+					<div class="bar license" >數位簽名 <textarea id="res_sign"></textarea></div>
+				</div>
+
+				<button class="h2 head lock_open_right" onclick="hide('#rsa #decrypt')">RSA解密器</button>
+				<div class="content" id="decrypt">
+					<div class="bar encrypted">解密文字 <textarea id="orig"></textarea></div>
+					<div class="bar license">數位簽名 <textarea id="orig_sign"></textarea></div>
+					<button class="btn key" onclick="new rsa().decrypt()">解密</button>
+					<button class="btn search_check_2" onclick="new rsa().check_sign()">檢查簽名</button>
+					<div class="bar txt" >解密結果 <textarea id="res_txt"></textarea></div>
+					<div class="bar new_releases" >簽名正確性 <textarea id="res_sign"></textarea></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="rsa_keylist" class="operator">
+			<button class="h1" onclick="hide('#rsa_keylist')">RSA金鑰管理器</button>
+			<div class="bigbox" id="keylist">
+				<button class="btn upload" onclick="rsa_keybank.export()">匯出所有密碼</button>
+				<button class="btn download" onclick="rsa_keybank.import()">匯入所有密碼</button>
+				<div class="bar security_key" >密碼表 <textarea id="output"></textarea></div>
+
+				<button class="h2 head lock" onclick="hide('#rsa_keylist #pub_key_add')">新增RSA公鑰</button>
+				<div class="content" id="pub_key_add">
+					<div class="bar person" >名稱<input id="name"></input></div>
+					<div class="bar pin" >公鑰 <input id="key"></input></div>
+					<button class="btn download" onclick="
+						rsa_keybank.add(
+							'rsa_pub_key',
+							(document.querySelector('#rsa_keylist #pub_key_add #name').value),
+							(document.querySelector('#rsa_keylist #pub_key_add #key').value),
+							'RSA公鑰',
+							'#rsa #key_pub'
+						)
+					">新增至密碼本	</button>
+				</div>
+				
+				<button class="h2 head lock" onclick="hide('#rsa_keylist #pri_key_add')">新增RSA私鑰</button>
+				<div class="content" id="pri_key_add">
+					<div class="bar person" >名稱<input id="name"></input></div>
+					<div class="bar password" type="password">私鑰 <input id="key"></input></div>
+					<button class="btn download" onclick="
+						rsa_keybank.add(
+							'rsa_pri_key',
+							(document.querySelector('#rsa_keylist #pri_key_add #name').value),
+							(document.querySelector('#rsa_keylist #pri_key_add #key').value),
+							'RSA私鑰',
+							'#rsa #key_pri'
+						)
+					">新增至密碼本	</button>
+				</div>
+			</div>
+		</div>
+			
+		<script src="./script.js"></script>
+		<script src="../script.js"></script>
+		<script src="../sha256.js"></script>
+	</body>
+</html>

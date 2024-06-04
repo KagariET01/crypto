@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EASY_AES加密器</title>
+		<link rel="stylesheet" type="text/css" href="/style.css">
+		<meta charset="utf-8" />
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	</head>
+	<body>
+
+		<div id="easyAES" class="operator">
+			<button class="h1" onclick="hide('easyAES')">EASY_AES加密器</button>
+			<div class="bigbox">
+				<p>
+					此加密器為AES加密器的簡化版本，加密強度非常弱，僅供學習使用。
+				</p>
+				<div class="bar key" style="width: fit-content;">加密金鑰 <input id="key"></div>
+				
+				<h2 class="head lock">金鑰生成器</h2>
+				<div class="content" id="keygen">
+					<button class="btn keyboard" onclick="new easyAES().keygen()">生成金鑰</button>
+					<div class="bar key" >金鑰 <textarea id="res"></textarea></div>
+				</div>
+
+				<h2 class="head lock">EASY_AES加密器</h2>
+				<div class="content" id="encrypt">
+					<div class="bar txt">加密文字 <textarea id="orig"></textarea></div>
+					<button class="btn keyboard" onclick="new easyAES().encrypt()">加密</button>
+					<div class="bar encrypted" >加密結果 <textarea id="res"></textarea></div>
+				</div>
+
+				<h2 class="head lock_open_right">EASY_AES解密器</h2>
+				<div class="content" id="decrypt">
+					<div class="bar encrypted">解密文字 <textarea id="orig"></textarea></div>
+					<button class="btn key" onclick="new easyAES().decrypt()">解密</button>
+					<div class="bar txt" >解密結果 <textarea id="res"></textarea></div>
+				</div>
+			</div>
+			<script src="./script.js"></script>
+			<script src="../script.js"></script>
+		</div>
+
+
+	</body>
+</html>
